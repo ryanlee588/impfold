@@ -1,3 +1,4 @@
+Require Import List.
 
 (* Unfolding the call to list_fold_right and inlining is definiens *)
 
@@ -39,7 +40,7 @@ Definition list_reverse_right_acc_inlined_v3 (V : Type) (ls : list V) : list V :
 (* ************************* *)
 (* Commuting the match-expression and the lambda-abstraction *)
 
-Definition list_reverse_right_acc_inlined_v4 (V : Type) (ls : list V) : list nat :=
+Definition list_reverse_right_acc_inlined_v4 (V : Type) (ls : list V) : list V :=
   let fix visit ls := fun acc =>
     match ls with 
     | nil => acc
@@ -60,14 +61,14 @@ Definition list_reverse_right_acc_inlined_v5 (V : Type) (ls : list V) : list V :
 
 (* ************************* *)
 (* Lambda-lifting *)
-Definition list_reverse_right_acc_inlined_v6_aux (V : Type)
+Fixpoint list_reverse_right_acc_inlined_v6_aux (V : Type)
 (ls : list V) (acc : list V) : list V :=
     match ls with 
     | nil => acc
-    | l :: ls' => list_reverse_right_acc_inlined_v6_aux ls' (l :: acc) 
+    | l :: ls' => list_reverse_right_acc_inlined_v6_aux V ls' (l :: acc) 
     end.
 
 Definition list_reverse_right_acc_inlined_v6 (V : Type) (ls : list V) : list V :=
      list_reverse_right_acc_inlined_v6_aux V ls nil.
-
 (* ************************* *)
+
