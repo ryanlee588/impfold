@@ -13,7 +13,8 @@ Definition list_fold_right (V W : Type) (base_case : W) (cons_case : V -> W -> W
   let fix visit ls :=
     match ls with
     | nil => base_case
-    | l :: ls' => cons_case l (visit ls')
+    | l :: ls' => let ih := (visit ls')
+                  in cons_case l ih
     end
   in visit ls.
 

@@ -23,7 +23,9 @@ Definition binary_tree_fold (V W : Type) (lea : W)
       Leaf _ =>
       lea
     | Node _ v t1 t2 =>
-      nod v (visit t1) (visit t2)
+        let ihl := visit t1
+        in let ihr := visit t2
+           in nod v ihl ihr
     end
   in visit t.
 
@@ -217,3 +219,4 @@ Compute (test_binary_tree_flatten binary_tree_flatten_v2).
 (* ***************************** *)
 
 (* End of File *)
+Proposition a :
