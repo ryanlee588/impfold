@@ -6,12 +6,12 @@ Version of 270325
 
 ```c
 typedef struct Sllnode {
-    T value;
+    V value;
     struct Sllnode* next;
 } Sllnode;
 
 typedef struct Treenode {
-    T value;
+    V value;
     struct Treenode* left;
     struct Treenode* right;
 } Treenode;

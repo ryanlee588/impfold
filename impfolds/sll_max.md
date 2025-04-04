@@ -6,7 +6,7 @@ Version of 300325
 
 ```c
 typedef struct Sllnode {
-    T value;
+    V value;
     struct Sllnode* next;
 } Sllnode;
 ```

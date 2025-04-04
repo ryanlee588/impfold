@@ -1,10 +1,12 @@
 # SLL Length Transformation
 
+Version of 270325
+
 ## Type Definitions
 
 ```c
 typedef struct Sllnode {
-    T value;
+    V value;
     struct Sllnode* next;
 } Sllnode;
 ```
@@ -17,9 +19,7 @@ V sll_impfoldr (V base_case) (V (*cons_case)[] (Sllnode*) (V)) (Sllnode* sllnode
         return base_case;
     } else {
         Sllnode* next_ptr = sllnode_ptr->next;
-
         V ih = sll_impfoldr base_case cons_case next_ptr;
-
         return cons_case sllnode_ptr ih;
     }
 }
@@ -35,9 +35,7 @@ int sll_length (Sllnode* ls_ptr) {
         return 0
     } else {
         Sllnode* next_ptr = sllnode_ptr->next;
-
         int ih = sll_length T next_ptr
-
         return ih + 1;
     }
 ```
@@ -87,9 +85,7 @@ int sll_length_right_acc_inlined_v1 (Sllnode* ls_ptr) {
             return base_case;
         } else {
             Sllnode* next_ptr = sllnode_ptr->next;
-
             int ih[] (int) = visit next_ptr
-
             return cons_case sllnode_ptr ih;
         }
     };
@@ -108,9 +104,7 @@ int sll_length_right_acc_inlined_v2 (Sllnode* ls_ptr) {
             });
         } else {
             Sllnode* next_pointer = sllnode_ptr->next;
-
             int ih[] (int) = visit next_pointer;
-
             return ([] (Sllnode* node_ptr)
             (int ih[] (int)) (int acc) = {
                return ih (1 + acc);
@@ -132,9 +126,7 @@ int sll_length_right_acc_inlined_v3 (Sllnode* ls_ptr) {
             });
         } else {
             Sllnode* next_pointer = sllnode_ptr->next;
-
             int ih = visit next_pointer;
-
             return ([] (int acc) = {
                return ih (1 + acc);
             })
@@ -152,9 +144,7 @@ int sll_length_right_acc_inlined_v4 (Sllnode* ls_ptr) {
             return acc
         } else {
             Sllnode* next_pointer = sllnode_ptr->next;
-
             int ih[] (int) = visit next_pointer;
-
             return ih (1 + acc);
         }
     }};
@@ -171,9 +161,7 @@ int sll_length_right_acc_inlined_v5 (Sllnode* ls_ptr) {
             return acc
         } else {
             Sllnode* next_pointer = sllnode_ptr->next;
-
             int ih[] (int) = visit next_pointer;
-
             return ih (1 + acc);
         }
     };
@@ -189,7 +177,6 @@ int sll_length_v2_aux (Sllnode* ls_ptr) (int acc) {
         return acc
     } else {
         Sllnode* next_ptr = sllnode_ptr->next;
-
         return sll_length_v2_aux next_ptr (1 + acc);
     }
 

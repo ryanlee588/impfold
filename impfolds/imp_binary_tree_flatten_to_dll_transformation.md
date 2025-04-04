@@ -6,7 +6,7 @@ Version of 270325
 
 ```c
 typedef struct Treenode {
-    T value;
+    V value;
     struct Treenode* left;
     struct Treenode* right;
 } Treenode;
