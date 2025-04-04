@@ -14,7 +14,8 @@ Definition list_fold_right (V W : Type) (base_case : W) (cons_case : V -> W -> W
   let fix visit ls :=
     match ls with
     | nil => base_case
-    | l :: ls' => cons_case l (visit ls')
+    | l :: ls' => let ih := (visit ls')
+                  in cons_case l ih
     end
   in visit ls.
 
@@ -65,8 +66,22 @@ Definition list_max (ls : list nat) : nat :=
   list_head (list_sort ls).
 
 Compute (test_list_max list_max).
+
+(** ************************* **)
+(** List Max with List Sort Unfolded **)
+
+Definition list_max_alt (ls : list nat) : nat :=
+    list_head 
+    (list_fold_right
+    nat
+    (list nat)
+    nil
+    list_insert
+    ls).
+
+Compute (test_list_max list_max_alt).
                      
-(* ***************************** *)
+(** ************************* **)
 (** List Max Optimized **)
 
 Definition list_max_v2 (ls : list nat) : nat :=
