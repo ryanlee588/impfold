@@ -78,6 +78,18 @@ int sll_max (Sllnode* ls_ptr) {
 }
 ```
 
+## SLL Max with SLL Sort unfolded
+
+```c
+int sll_max_alt (Sllnode* ls_ptr) {
+    return sll_first_value
+            (sll_impfoldr
+            nil
+            sll_insert
+            ls_pointer);
+}
+```
+
 ## SLL Max Optimized
 
 ```c
