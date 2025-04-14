@@ -54,7 +54,7 @@ Sllnode* sll_sort (Sllnode* ls_ptr) {
     return sll_impfoldr
             nil
             sll_insert
-            ls_pointer;
+            ls_ptr;
 }
 ```
 
@@ -86,7 +86,7 @@ int sll_max_alt (Sllnode* ls_ptr) {
             (sll_impfoldr
             nil
             sll_insert
-            ls_pointer);
+            ls_ptr);
 }
 ```
 

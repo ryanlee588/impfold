@@ -34,7 +34,7 @@ int sll_length (Sllnode* ls_ptr) {
     if (ls_ptr == NULL) {
         return 0
     } else {
-        Sllnode* next_ptr = sllnode_ptr->next;
+        Sllnode* next_ptr = ls_ptr->next;
         int ih = sll_length T next_ptr
         return ih + 1;
     }
@@ -49,7 +49,7 @@ int sll_length_right (Sllnode* ls_ptr) {
             (int [] (Sllnode* node_ptr) (int ih) = {
                return ih + 1;
             })
-            ls_pointer;
+            ls_ptr;
 }
 ```
 
@@ -176,7 +176,7 @@ int sll_length_v2_aux (Sllnode* ls_ptr) (int acc) {
     if (ls_ptr == NULL) {
         return acc
     } else {
-        Sllnode* next_ptr = sllnode_ptr->next;
+        Sllnode* next_ptr = ls_ptr->next;
         return sll_length_v2_aux next_ptr (1 + acc);
     }
 
